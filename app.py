@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, send_file
 import os
+from analyze import analyze
 
 app = Flask(__name__)
 
@@ -23,7 +24,9 @@ def upload_file():
     if file:
         filename = file.filename
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        analysis_result = analyze("uploads/"+filename)
         return filename
+    
 
 @app.route('/download/<filename>', methods=['GET'])
 def download_file(filename):
