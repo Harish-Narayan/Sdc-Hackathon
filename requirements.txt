@@ -1,1 +1,4 @@
 Flask
+google-cloud-vision
+langchain-google-genai
+pillow
