@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Files</title>
+    <link rel="stylesheet" href="../static/style.css">
+
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <h3>Upload Files</h3>
+    <div class="drop_box">
+      <header>
+        <h4>Select File here</h4>
+      </header>
+      <p>Files Supported: JPEG, PNG, JPG</p>
+      
+      <form id="upload-form" enctype="multipart/form-data">
+        <input type="file" id="file-input" name="file" accept="image/*">
+        <button class="btn" type="submit">Upload Image</button>
+      </form>
+      <div id="output"></div>
+    </div>
+  </div>
+</div>
+<script src="../static/scripts.js"></script>
+</body>
+</html>
