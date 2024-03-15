@@ -3,3 +3,6 @@ google-cloud-vision
 langchain-google-genai
 pillow
 pymongo
+tensorflow
+scikit-learn
+numpy
