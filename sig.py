@@ -4,7 +4,6 @@ from skimage import measure, morphology
 from skimage.color import label2rgb
 from skimage.measure import regionprops
 import numpy as np
-from signature_extractor import detect_sig
 
 def detect_sig():
     constant_parameter_1 = 84

@@ -2,3 +2,7 @@ Flask
 google-cloud-vision
 langchain-google-genai
 pillow
+cv2
+matplotlib
+numpy
+scikit-image
