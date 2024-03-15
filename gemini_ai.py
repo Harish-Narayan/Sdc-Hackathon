@@ -11,7 +11,7 @@ def gemini_classification(raw_text):
         result = llm.invoke("A list of strings parsed from an image of a bank cheque is provided below. I want to classify the strings into the following categories:\
                         1. account_number (Output should not have any spaces in between, concatenate the space if any)\
                         2. ifsc_code\
-                        3. bearer_name\
+                        3. bearer_name (bearer_name is the Person's name that is closest to the string 'Pay')\
                         4. amount\
                         5. amount_in_words\
                         6. issue_date\
