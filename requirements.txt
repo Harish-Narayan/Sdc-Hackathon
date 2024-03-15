@@ -2,6 +2,9 @@ Flask
 google-cloud-vision
 langchain-google-genai
 pillow
+cv2
+matplotlib
+scikit-image
 pymongo
 tensorflow
 scikit-learn
