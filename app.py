@@ -67,6 +67,11 @@ def fetch_data(number):
             return dumps(data), 200
     else:
         return jsonify({"message": "No data found"}), 404
-
+    
+@app.route('/process_checked')
+def process_checked():
+    # Perform any processing if needed
+    # Redirect to the desired page
+    return render_template('p_cheque.html')
 if __name__ == '__main__':
     app.run(debug=True)
