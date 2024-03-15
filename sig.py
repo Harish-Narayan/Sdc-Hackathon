@@ -1,3 +1,4 @@
+from venv import logger
 import cv2
 import matplotlib.pyplot as plt
 from skimage import measure, morphology
@@ -5,13 +6,14 @@ from skimage.color import label2rgb
 from skimage.measure import regionprops
 import numpy as np
 
+
 def detect_sig():
     constant_parameter_1 = 84
     constant_parameter_2 = 250
     constant_parameter_3 = 100
     constant_parameter_4 = 18
     # read the input image
-    img = cv2.imread('./inputs/extracted_signature.jpg', 0)
+    img = cv2.imread('./input/extracted_signature.jpg', 0)
     img = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY)[1]  # ensure binary
 
     # connected component analysis by scikit-learn framework
@@ -19,7 +21,7 @@ def detect_sig():
     blobs_labels = measure.label(blobs, background=1)
     image_label_overlay = label2rgb(blobs_labels, image=img)
 
-    fig, ax = plt.subplots(figsize=(10, 6))
+    #fig, ax = plt.subplots(figsize=(10, 6))
 
     '''
     # plot the connected components (for debugging)
@@ -75,7 +77,8 @@ def detect_sig():
     # ensure binary
     img = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
     # save the the result
-    cv2.imwrite("./outputs/output.png", img)
+    cv2.imwrite("./output/output.png", img)
+    return
 
 def extract_signature(cheque_image_path, signature_location):
     # Load the cheque image
@@ -87,13 +90,15 @@ def extract_signature(cheque_image_path, signature_location):
 
     return signature
 
-# Example usage
-cheque_image_path = './inputs/Cheque2.tif'
-# Assuming signature location (x, y, width, height)
-signature_location = (1400, 500, 1700, 1000)  # Example values, adjust as per your requirement
+def signature_extraction_start(filepath):
+    # Example usage
+    print(filepath)
+    cheque_image_path = filepath
+    # Assuming signature location (x, y, width, height)
+    signature_location = (1400, 500, 1700, 1000)  # Example values, adjust as per your requirement
 
-signature = extract_signature(cheque_image_path, signature_location)
+    signature = extract_signature(cheque_image_path, signature_location)
 
-# Save or process the extracted signature
-cv2.imwrite('./inputs/extracted_signature.jpg', signature)
-detect_sig()
+    # Save or process the extracted signature
+    cv2.imwrite('./input/extracted_signature.jpg', signature)
+    detect_sig()

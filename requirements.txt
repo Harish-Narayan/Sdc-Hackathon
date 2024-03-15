@@ -2,7 +2,7 @@ Flask
 google-cloud-vision
 langchain-google-genai
 pillow
-cv2
+opencv-python
 matplotlib
 scikit-image
 pymongo
