@@ -4,5 +4,8 @@ langchain-google-genai
 pillow
 cv2
 matplotlib
-numpy
 scikit-image
+pymongo
+tensorflow
+scikit-learn
+numpy

@@ -26,11 +26,12 @@ def gemini_classification(raw_text):
                                 \
                         Issue date is always in the format ddmmyyyy in the raw text but in JSON output, provide the date in the format dd/mm/yyyy\
                         Calculate expiry date from a string that says about the validity of the cheque. If a string similar to 'VALID FOR THREE MONTHS FROM THE DATE OF ISSUE' is present, calculate expiry_date from issue_date using that string.\
-                                \
-                        Correct spelling mistakes and fill words if needed in the amount_in_words column. Remove any special characters in the amount field. amount field should contain only the number.\
-                        The output should be in JSON. Ignore any field (mark as nil) if it is not present in the strings." + raw_text)
+                        Amount in words will always be the amount written in words. Check the spelling and correct if any other error is detected in amount_in_words.        \
+                        Remove any special characters in the amount field. amount field should contain only the number.\
+                        The output should be in JSON. Ignore any field (mark as nil) if it is not present in the strings. The output should be just the JSON file with no additional strings included." + raw_text)
         
         stripped_result = result.content.replace('json', '').strip()
         stripped_result = stripped_result.replace('`', '').strip()
+        stripped_result = stripped_result.replace('JSON', '').strip()
         result_json = json.loads(stripped_result)
         return result_json
