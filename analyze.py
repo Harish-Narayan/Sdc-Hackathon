@@ -17,14 +17,14 @@ collection_processed_check = db['processedcheckcollection']
 def analyze_cheque(filepath):
     raw_text = detect_text(filepath)
     cheque_details = gemini_classification(raw_text)
-    print(cheque_details)  #continue from here. cheque_details has the json of all extracted fields from the cheque
+    # print(cheque_details)  #continue from here. cheque_details has the json of all extracted fields from the cheque
     signature_extraction_start(filepath)
 
     chequeSignPath = "./output/output.png"
     acc_no = cheque_details['account_number']
     accDetails = fetch_data(acc_no)
     # accDetails=accDe
-    print(accDetails)
+    # print(accDetails)
     sign_url = accDetails["sign_url"]
     get_original_signature(sign_url)
     dbSignPath = "./dbSigns/dbSignature.jpg"

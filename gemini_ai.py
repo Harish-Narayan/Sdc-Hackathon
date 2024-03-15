@@ -33,6 +33,6 @@ def gemini_classification(raw_text):
         stripped_result = result.content.replace('json', '').strip()
         stripped_result = stripped_result.replace('`', '').strip()
         stripped_result = stripped_result.replace('JSON', '').strip()
-        print(stripped_result)
+        # print(stripped_result)
         result_json = json.loads(stripped_result)
         return result_json
