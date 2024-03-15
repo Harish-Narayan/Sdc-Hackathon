@@ -9,7 +9,7 @@ def gemini_classification(raw_text):
         llm = ChatGoogleGenerativeAI(model="gemini-pro")
 
         result = llm.invoke("A list of strings parsed from an image of a bank cheque is provided below. I want to classify the strings into the following categories:\
-                        1. account_number\
+                        1. account_number (Output should not have any spaces in between, concatenate the space if any)\
                         2. ifsc_code\
                         3. bearer_name\
                         4. amount\

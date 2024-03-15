@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, send_file,jsonify
 import os
 from pymongo import MongoClient
-from analyze import analyze
+from analyze import analyze_cheque
 from bson.json_util import dumps
 
 
 app = Flask(__name__)
-client = MongoClient('mongodb://mongo:27017/')
+client = MongoClient('mongodb://localhost:27017')
 db = client['chequedatabase']  # Database name
 collection = db['chequecollection']  # Collection name
 collection_processed_check = db['processedcheckcollection']
@@ -31,7 +31,8 @@ def upload_file():
     if file:
         filename = file.filename
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        analysis_result = analyze("uploads/"+filename)
+        analysis_result = analyze_cheque("uploads/"+filename)
+        
         return filename
     
 
@@ -39,12 +40,6 @@ def upload_file():
 def download_file(filename):
     return send_file(os.path.join(app.config['UPLOAD_FOLDER'], filename), as_attachment=True)
 
-@app.route('/insert', methods=['POST'])
-def insertProcessedCheck(new_json):
-    # Expecting data in the form of {"name": "John Doe", "age": 30}
-    data = request.json
-    collection_processed_check.insert_one(new_json)
-    return jsonify({"message": "Data inserted successfully"}), 201
 
 @app.route('/getAllProcessedCheck', methods=['GET'])
 def getAllProcessedCheck():
@@ -59,14 +54,6 @@ def getAllProcessedCheck():
 
     return jsonify(data,200)
 
-@app.route('/fetch/<number>', methods=['GET'])
-def fetch_data(number):
-    # Query the collection for documents where the "name" field matches the parameter
-    data = collection.find_one({"account_number": number})
-    if data: 
-            return dumps(data), 200
-    else:
-        return jsonify({"message": "No data found"}), 404
     
 @app.route('/process_checked')
 def process_checked():
