@@ -15,6 +15,9 @@
 # Verification Process involved:
   Signature Verification: We find the structural similarity score to detect if the sign is forged or not. We use custom threshold values finetuned for cheques.
   Insufficient balance checks are performed
+
+
+  Solution Video link : https://drive.google.com/file/d/1OQHCTRAOXRLaMMHmfnaB5Swg0JGjspJj/view?usp=sharing
   
   
 
