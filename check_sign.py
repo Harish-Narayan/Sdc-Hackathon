@@ -7,7 +7,7 @@ import numpy as np
 def ssim(A, B):
     return structural_similarity(A, B, data_range=A.max() - A.min())
 
-def check_sign(db_sign_path, cheque_sign_path):
+def verifySign(db_sign_path, cheque_sign_path):
     
     mode = "rgb"
     db_sign = load_img(db_sign_path,color_mode=mode, target_size=(150,150))
@@ -18,5 +18,5 @@ def check_sign(db_sign_path, cheque_sign_path):
 
     ssimValue = ssim(A_array.flatten(),B_array.flatten())
 
-    print(ssimValue)
+    return ssimValue
 
