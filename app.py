@@ -40,10 +40,10 @@ def download_file(filename):
     return send_file(os.path.join(app.config['UPLOAD_FOLDER'], filename), as_attachment=True)
 
 @app.route('/insert', methods=['POST'])
-def insertProcessedCheck():
+def insertProcessedCheck(new_json):
     # Expecting data in the form of {"name": "John Doe", "age": 30}
     data = request.json
-    collection_processed_check.insert_one(data)
+    collection_processed_check.insert_one(new_json)
     return jsonify({"message": "Data inserted successfully"}), 201
 
 @app.route('/getAllProcessedCheck', methods=['GET'])
