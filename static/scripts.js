@@ -25,3 +25,10 @@ document.getElementById('upload-form').addEventListener('submit', async function
         document.getElementById('output').innerHTML = `<p id="error-message">Error: ${error.message}</p>`;
     }
 });
+document.getElementById('proc_cheque').addEventListener('click', async function() {
+    console.log('Checked Button clicked');
+    
+        window.location.href = "/process_checked"; // Redirect to p_cheque.html
+   
+});
+

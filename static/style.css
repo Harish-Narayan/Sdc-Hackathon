@@ -65,6 +65,10 @@
   outline: none;
   transition: 0.3s;
 }
+#proc_cheque {
+  margin-top: 50px;
+  margin-left: 35%;
+}
 
 .btn:hover{
   text-decoration: none;
@@ -82,4 +86,39 @@
   outline: none;
   padding: 12px 20px;
   border-radius: 4px;
+}
+
+/* Table_Styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.table-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%; /* Adjust the width as needed */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;  
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
 }
