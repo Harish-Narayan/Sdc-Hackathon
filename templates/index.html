@@ -18,12 +18,31 @@
       <p>Files Supported: JPEG, PNG, JPG</p>
       
       <form id="upload-form" enctype="multipart/form-data">
-        <input type="file" id="file-input" name="file" accept="image/*">
+        <input type="file" id="file-input" name="file" accept="image/*" required>
         <button class="btn" type="submit">Analyze Cheque</button>
+        
       </form>
-      <div id="output"></div>
+      
     </div>
     <button id="proc_cheque" class="btn" type="submit">Processed Checked</button>
+  </div>
+
+    <!-- <iframe src="https://giphy.com/embed/swhRkVYLJDrCE"width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
+    <!-- <iframe src="https://giphy.com/embed/IwSG1QKOwDjQk" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
+  <iframe id="loading" src="https://lottie.host/embed/3ee20ec3-a360-452c-ade6-509b17ed619a/OEZiTbiJ5c.json"></iframe>
+
+  
+  <div class="popup" id="popup-approved">
+    <img src="../static/tick.png">
+    <div id="approved-output-heading"></div>
+    <div id="approved-output"></div>
+    <button type="button" onclick="closePopup('approved')">Ok</button>
+  </div>
+  <div class="popup" id="popup-denied">
+    <img src="../static/x.png">
+    <div id="denied-output-heading"></div>
+    <div id="denied-output"></div>
+    <button type="button" onclick="closePopup('denied')">Ok</button>
   </div>
 </div>
 <script src="../static/scripts.js"></script>

@@ -29,8 +29,8 @@ def analyze_cheque(filepath):
     get_original_signature(sign_url)
     dbSignPath = "./dbSigns/dbSignature.jpg"
     ssimValue = verifySign(chequeSignPath, dbSignPath)
-    process_check(ssimValue,cheque_details,accDetails)
-    return "done"
+    feedback=process_check(ssimValue,cheque_details,accDetails)
+    return feedback
 def fetch_data(number):
     data = collection.find_one({"account_number": number})
 
