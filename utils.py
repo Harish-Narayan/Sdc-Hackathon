@@ -20,13 +20,13 @@ def process_check(ssim, cheque_details, acc_details):
         output_json["reason"] = "Signature Mismatch"
         insert(output_json)
         print(output_json)
-        return "done"
+        return "Denied: Signature Mismatch"
     elif ( ssim>0.5 and ssim<0.75 ):
         output_json["approval_status"] = "Waiting for human intervention"
         output_json["reason"] = "Signature Mismatch"
         insert(output_json)
         print(output_json)
-        return "done"
+        return "Waiting for human intervention: Signature Mismatch"
     
     current_acc_balance = acc_details['balance']
     if(int(cheque_details['amount']) > int(current_acc_balance)):
@@ -34,10 +34,10 @@ def process_check(ssim, cheque_details, acc_details):
         output_json["reason"] = "Insuffient Balance"
         insert(output_json)
         print(output_json)
-        return "done"
+        return "Denied: Insuffient Balance"
     
     output_json["approval_status"] = "Approved"
     output_json["reason"] = ""
     insert(output_json)
     print(output_json)
-    return "done"
+    return "Approved: Verification completed"

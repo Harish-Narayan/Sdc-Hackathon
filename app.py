@@ -32,8 +32,7 @@ def upload_file():
         filename = file.filename
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         analysis_result = analyze_cheque("uploads/"+filename)
-        
-        return filename
+        return analysis_result
     
 
 @app.route('/download/<filename>', methods=['GET'])
@@ -59,6 +58,7 @@ def getAllProcessedCheck():
 def process_checked():
     # Perform any processing if needed
     # Redirect to the desired page
-    return render_template('p_cheque.html')
+    data = collection_processed_check.find() 
+    return render_template('p_cheque.html',data=data)
 if __name__ == '__main__':
     app.run(debug=True)

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
+<a class="back-button" href="/">Back</a>
 <div class="table-container">
     <table>
         <thead>
@@ -22,6 +23,18 @@
             </tr>
         </thead>
         <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row.account_number }}</td>
+                <td>{{ row.ifsc_code }}</td>
+                <td>{{ row.micr_code }}</td>
+                <td>{{ row.issue_date }}</td>
+                <td>{{ row.bearer_name }}</td>
+                <td>{{ row.amount }}</td>
+                <td>{{ row.approval_status }}</td>
+                <td>{{ row.reason }}</td>
+            </tr>
+            {% endfor %}
             <!-- Table rows will be dynamically added here -->
         </tbody>
     </table>
