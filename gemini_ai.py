@@ -4,7 +4,7 @@ import json
 
 def gemini_classification(raw_text):
         if "GOOGLE_API_KEY" not in os.environ:
-                os.environ["GOOGLE_API_KEY"] = "AIzaSyDRxdGIcKqXuYkjiZpA74oGTU7jUG4ipOM"
+                os.environ["GOOGLE_API_KEY"] = ""
 
         llm = ChatGoogleGenerativeAI(model="gemini-pro")
 
